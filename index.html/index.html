@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contratación de DJ</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div id="contenido">
+        <header>
+            <h1>Servicios de DJ</h1>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#reseñas">Reseñas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div id="icono-carrito" onclick="mostrarCarrito()">
+                🛒 <span id="contador-carrito">0</span>
+            </div>
+        </header>
+
+        <main>
+            <section id="inicio">
+                <h2>Bienvenido a Nuestro Servicio de DJ</h2>
+                <p>Contrata el mejor DJ para tu evento.</p>
+                <img src="icono-dj.png" alt="Ícono de DJ" class="icono-dj"> 
+            </section>
+
+            <section id="servicios">
+                <h2>Nuestros Servicios</h2>
+                <div class="grid">
+                    <div class="card">
+                        <img src="boda.jpg" alt="Boda">
+                        <h3>DJ para Bodas</h3>
+                        <p>El mejor ambiente para tu gran día.</p>
+                        <button onclick="agregarAlCarrito('DJ para Bodas')">Contratar</button>
+                    </div>
+                    <div class="card">
+                        <img src="fiesta.jpg" alt="Fiesta">
+                        <h3>DJ para Fiestas</h3>
+                        <p>Fiestas inolvidables con la mejor música.</p>
+                        <button onclick="agregarAlCarrito('DJ para Fiestas')">Contratar</button>
+                    </div>
+                    <div class="card">
+                        <img src="corporativo.jpg" alt="Eventos Corporativos">
+                        <h3>DJ para Eventos Corporativos</h3>
+                        <p>Profesionalismo y diversión asegurados.</p>
+                        <button onclick="agregarAlCarrito('DJ para Eventos Corporativos')">Contratar</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="reseñas">
+                <h2>Reseñas de Nuestros Clientes</h2>
+                <div class="review">
+                    <p>"Excelente servicio, el DJ supo animar nuestra boda!" - Laura</p>
+                </div>
+                <div class="review">
+                    <p>"Una fiesta increíble, ¡recomendado al 100%!" - José</p>
+                </div>
+                <div class="review">
+                    <p>"Gran profesional, hizo que nuestro evento fuera inolvidable." - Marta</p>
+                </div>
+            </section>
+        </main>
+
+        <footer id="contacto">
+            <h2>Contacto</h2>
+            <div class="formulario-contacto">
+                <form id="formulario" action="https://formspree.io/f/xrbgpozo" method="POST">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <br>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+                    <br>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        let serviciosContratados = [];
+        
+        function agregarAlCarrito(servicio) {
+            serviciosContratados.push(servicio);
+            document.getElementById('contador-carrito').innerText = serviciosContratados.length;
+        }
+
+        function mostrarCarrito() {
+            const mensaje = serviciosContratados.length > 0 
+                ? 'Servicios contratados:\n' + serviciosContratados.join('\n') 
+                : 'No hay servicios contratados.';
+            alert(mensaje);
+        }
+    </script>
+</body>
+</html>
