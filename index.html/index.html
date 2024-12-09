@@ -23,6 +23,12 @@
             </div>
         </header>
 
+        <div id="carrito" style="display: none;">
+            <h2>Carrito de Compras</h2>
+            <div id="lista-carrito" class="card"></div>
+            <button onclick="ocultarCarrito()">Cerrar Carrito</button>
+        </div>
+
         <main>
             <section id="inicio">
                 <h2>Bienvenido a Nuestro Servicio de DJ</h2>
@@ -37,19 +43,19 @@
                         <img src="boda.jpg" alt="Boda">
                         <h3>DJ para Bodas</h3>
                         <p>El mejor ambiente para tu gran día.</p>
-                        <button onclick="agregarAlCarrito('DJ para Bodas')">Contratar</button>
+                        <button onclick="agregarAlCarrito({ nombre: 'DJ para Bodas', descripcion: 'El mejor ambiente para tu gran día.' })">Contratar</button>
                     </div>
                     <div class="card">
                         <img src="fiesta.jpg" alt="Fiesta">
                         <h3>DJ para Fiestas</h3>
                         <p>Fiestas inolvidables con la mejor música.</p>
-                        <button onclick="agregarAlCarrito('DJ para Fiestas')">Contratar</button>
+                        <button onclick="agregarAlCarrito({ nombre: 'DJ para Fiestas', descripcion: 'Fiestas inolvidables con la mejor música.' })">Contratar</button>
                     </div>
                     <div class="card">
                         <img src="corporativo.jpg" alt="Eventos Corporativos">
                         <h3>DJ para Eventos Corporativos</h3>
                         <p>Profesionalismo y diversión asegurados.</p>
-                        <button onclick="agregarAlCarrito('DJ para Eventos Corporativos')">Contratar</button>
+                        <button onclick="agregarAlCarrito({ nombre: 'DJ para Eventos Corporativos', descripcion: 'Profesionalismo y diversión asegurados.' })">Contratar</button>
                     </div>
                 </div>
             </section>
@@ -87,20 +93,6 @@
         </footer>
     </div>
 
-    <script>
-        let serviciosContratados = [];
-        
-        function agregarAlCarrito(servicio) {
-            serviciosContratados.push(servicio);
-            document.getElementById('contador-carrito').innerText = serviciosContratados.length;
-        }
-
-        function mostrarCarrito() {
-            const mensaje = serviciosContratados.length > 0 
-                ? 'Servicios contratados:\n' + serviciosContratados.join('\n') 
-                : 'No hay servicios contratados.';
-            alert(mensaje);
-        }
-    </script>
+    <script src="mi_script.js"></script>
 </body>
 </html>
